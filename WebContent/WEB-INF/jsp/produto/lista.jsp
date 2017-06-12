@@ -60,6 +60,11 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="/produtos/produto/formulario">Adicionar um produto</a>
+	
+	<c:set var="nome" value="João da Silva" />
+	<c:out value="${nome}" />
+
+	<c:url value="/produto/formulario" var="urlAdicionarProduto"></c:url>
+	<a href="${urlAdicionarProduto}">Adicionar um produto</a>
 </body>
 </html>
