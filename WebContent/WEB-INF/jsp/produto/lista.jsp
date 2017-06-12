@@ -35,10 +35,18 @@
 		<c:forEach var="p" items="${produtoList}" varStatus="st">
 			<tr id="produto${p.id}">
 				<td>${st.count}</td>
-				<td>${p.nome}</td>
-				<td>${p.preco}</td>
+				<td>${p.nome.toUpperCase()}</td>
+				<td>
+					<fmt:formatNumber value="${p.preco}" type="currency"/>
+				</td>
 				<td>${p.descricao}</td>
-				<td>${p.dataInicioVenda.time}</td>
+				<td>
+					<fmt:formatDate value="${p.dataInicioVenda.time}" pattern="dd/MM/yyyy"/>
+				</td>
+				<!-- <td>
+					<fmt:formatDate value="${p.dataInicioVenda.time}" pattern="EEEE, dd 'de' MMMM 'de' yyyy"/>
+				</td> -->
+				
 				<!-- Usando c:if -->
 				<!--<c:if test="${p.usado}">
 					<td>Sim</td>
@@ -60,10 +68,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	
-	<c:set var="nome" value="João da Silva" />
-	<c:out value="${nome}" />
-
 	<c:url value="/produto/formulario" var="urlAdicionarProduto"></c:url>
 	<a href="${urlAdicionarProduto}">Adicionar um produto</a>
 </body>
